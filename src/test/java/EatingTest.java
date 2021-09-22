@@ -1,7 +1,8 @@
+import dtos.Bird;
 import dtos.Human;
 import exceptions.AllTeethsRemovedException;
 import exceptions.EatingException;
-import exceptions.WalkingException;
+
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.fail;
@@ -37,6 +38,19 @@ public class EatingTest {
             System.out.println("All teeth removed so human is not eating it's OK");
         } catch (EatingException e) {
             fail("Because all teeth removed exception was raised this exception shouldn't be executed");
+        }
+    }
+
+    @Test
+    public void birdWhoAlreadyAteCantEat() {
+        Bird bird = new Bird();
+        bird.setAlreadyAte(true);
+
+        try {
+            bird.eat();
+            fail("Bird already eaten. Failed.");
+        } catch (EatingException e) {
+            System.out.println("Bird is not eating cause it already did. Passed.");
         }
     }
 }

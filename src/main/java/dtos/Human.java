@@ -2,10 +2,12 @@ package dtos;
 
 import exceptions.AllTeethsRemovedException;
 import exceptions.EatingException;
+import exceptions.WalkingException;
 
 public class Human extends Mammal{
     private boolean afterDentist;
     private boolean allTeethRemoved;
+    private boolean covidPositive;
 
     public boolean isAfterDentist() {
         return afterDentist;
@@ -23,6 +25,14 @@ public class Human extends Mammal{
         this.allTeethRemoved = allTeethRemoved;
     }
 
+    public boolean isCovidPositive() {
+        return covidPositive;
+    }
+
+    public void setCovidPositive(boolean covidPositive) {
+        this.covidPositive = covidPositive;
+    }
+
     public Human() {
     }
 
@@ -35,5 +45,13 @@ public class Human extends Mammal{
             throw new EatingException("Don't eat!");
         }
         super.eat();
+    }
+
+    @Override
+    public void walk() throws WalkingException {
+        if (covidPositive) {
+            throw new WalkingException("Walking exception");
+        }
+        super.walk();
     }
 }
