@@ -1,9 +1,11 @@
 package mathematician.runner;
 
+import exceptions.EquationIncorrectException;
+
 import java.util.Scanner;
 
 public class MathematicianRunner2 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws EquationIncorrectException {
         Scanner scanner = new Scanner(System.in);
         String operation = "";
         while(true) {
