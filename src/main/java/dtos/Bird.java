@@ -2,8 +2,10 @@ package dtos;
 
 import exceptions.EatingException;
 import exceptions.FlyingException;
+import lombok.SneakyThrows;
+import refactoring.FlyingThings;
 
-public class Bird extends Animal {
+public class Bird extends Animal implements FlyingThings {
     private boolean brokenWing;
     private boolean alreadyAte;
 
@@ -23,7 +25,8 @@ public class Bird extends Animal {
         this.alreadyAte = alreadyAte;
     }
 
-    public void fly() throws FlyingException{
+    @SneakyThrows
+    public void fly() {
         if (brokenWing) {
             throw new FlyingException("Birds with broken wing don't fly");
         }

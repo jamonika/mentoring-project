@@ -12,7 +12,7 @@ import static mathematician.runner.FilesOperationsCalculator.calculateOperations
 
 public class MathematicianFileStructureRunner {
 
-    public static final Path calculatorFilesPath = Path.of("src","main", "resources", "calculator");
+    public static final Path calculatorFilesPath = Path.of("src", "main", "resources", "calculator");
     public static final String OUTPUT_FILE_PREFIX = "out_";
 
     public static void main(String[] args) throws IOException {
@@ -23,8 +23,8 @@ public class MathematicianFileStructureRunner {
     private static void calculateOperationsForAllFilesInDirectory(File filePath) {
         File[] filesInDirectory = filePath.listFiles();
 
-        for (File file: filesInDirectory) {
-            if (!file.getName().contains(OUTPUT_FILE_PREFIX) && !file.isDirectory()){
+        for (File file : filesInDirectory) {
+            if (!file.getName().contains(OUTPUT_FILE_PREFIX) && !file.isDirectory()) {
                 calculateOperationsForFile(file);
             }
             if (file.isDirectory()) {
