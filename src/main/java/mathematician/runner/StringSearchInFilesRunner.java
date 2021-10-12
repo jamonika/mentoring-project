@@ -30,14 +30,13 @@ public class StringSearchInFilesRunner {
         for (File file : filesInDirectory) {
             if (!file.isDirectory()) {
                 searchStringInFile(stringToFindInFiles, file);
-            }
-            else if (file.isDirectory()) {
+            } else if (file.isDirectory()) {
                 searchProvidedStringInFiles(stringToFindInFiles, file);
             }
         }
     }
 
-    private static void searchStringInFile (String stringToFindInFile, File file) {
+    private static void searchStringInFile(String stringToFindInFile, File file) {
         try {
             List<String> fileContent = readAllLines(file.toPath());
             List<String> strings = new ArrayList<>();
@@ -45,10 +44,14 @@ public class StringSearchInFilesRunner {
                 strings.addAll(Arrays.asList(sentence.split(" ")));
             }
 
+            boolean stringFound = false;
             for (String s : strings) {
-                if (s.equals(stringToFindInFile)){
-                    System.out.println(file.getName());
+                if (s.equals(stringToFindInFile)) {
+                    stringFound = true;
                 }
+            }
+            if (stringFound) {
+                System.out.println(file.getName());
             }
         } catch (IOException e) {
             System.out.println("File operation failed");
