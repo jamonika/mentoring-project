@@ -22,7 +22,7 @@ public class Mammal extends Animal {
     @Override
     public void walk() throws WalkingException {
         if (brokenLeg) {
-            throw new WalkingException("Mammal can't walk because of broken leg");
+            //throw new WalkingException("Mammal can't walk because of broken leg");
         }
         super.walk();
 

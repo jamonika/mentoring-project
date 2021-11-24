@@ -50,7 +50,8 @@ public class Human extends Mammal{
     @Override
     public void walk() throws WalkingException {
         if (covidPositive) {
-            throw new WalkingException("Walking exception");
+            //throw new WalkingException("Walking exception");
+            super.walk();
         }
         super.walk();
     }
